@@ -49,7 +49,7 @@ class Location
         return $this->city_name;
     }
 
-    public function setCityName(string $city_name): static
+    public function setCityName(?string $city_name): static
     {
         $this->city_name = $city_name;
 
@@ -61,7 +61,7 @@ class Location
         return $this->country;
     }
 
-    public function setCountry(string $country): static
+    public function setCountry(?string $country): static
     {
         $this->country = $country;
 
@@ -73,7 +73,7 @@ class Location
         return $this->latitude;
     }
 
-    public function setLatitude(string $latitude): static
+    public function setLatitude(?string $latitude): static
     {
         $this->latitude = $latitude;
 
@@ -85,7 +85,7 @@ class Location
         return $this->longitude;
     }
 
-    public function setLongitude(string $longitude): static
+    public function setLongitude(?string $longitude): static
     {
         $this->longitude = $longitude;
 

@@ -1,0 +1,72 @@
+App\Entity\Location:
+    properties:
+        city_name:
+            - NotBlank:
+                  message: 'Please enter a city name.'
+                  groups: [create, edit]
+            - Length:
+                  min: 2
+                  max: 255
+                  minMessage: 'City name must be at least {{ limit }} characters long.'
+                  groups: [create, edit]
+            -   Regex:
+                    pattern: '/\d/'
+                    match: false
+                    message: 'City name cannot contain digits.'
+                    groups: [ create, edit ]
+        latitude:
+            - NotBlank:
+                  message: 'Please enter the latitude.'
+                  groups: [create, edit]
+            - Range:
+                  min: -90
+                  max: 90
+                  notInRangeMessage: 'Latitude must be between {{ min }} and {{ max }}.'
+                  groups: [create, edit]
+        longitude:
+            - NotBlank:
+                  message: 'Please enter the longitude.'
+                  groups: [create,edit]
+            - Range:
+                  min: -180
+                  max: 180
+                  notInRangeMessage: 'Longitude must be between {{ min }} and {{ max }}.'
+                  groups: [create, edit]
+
+App\Entity\Measurement:
+    properties:
+        date:
+            - NotNull:
+                  message: 'Please enter a date.'
+                  groups: [create, edit]
+            - GreaterThanOrEqual:
+                    value: today
+                    message: 'The date cannot be in the past.'
+                    groups: [create, edit]
+        temp_celsius:
+            - NotNull:
+                  message: 'Please enter the temperature.'
+                  groups: [create, edit]
+            - Range:
+                  min: -90
+                  max: 90
+                  notInRangeMessage: 'Temperature must be between {{ min }} and {{ max }} °C.'
+                  groups: [create, edit]
+        feels_like_celsius:
+            - NotNull:
+                  message: 'Please enter the feels-like temperature.'
+                  groups: [create, edit]
+            - Range:
+                  min: -90
+                  max: 90
+                  notInRangeMessage: 'Feels-like temperature must be between {{ min }} and {{ max }} °C.'
+                  groups: [create, edit]
+        weather_condition:
+            - Choice:
+                  choices: [Clear, Few Clouds, Cloudy, Rain, Heavy Rain, Thunderstorm, Snow, Fog, Windy]
+                  message: 'Please choose a valid weather condition.'
+                  groups: [create, edit]
+        location:
+            - NotNull:
+                  message: 'Please choose a location.'
+                  groups: [create,edit]

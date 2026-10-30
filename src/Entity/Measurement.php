@@ -64,7 +64,7 @@ class Measurement
         return $this->temp_celsius;
     }
 
-    public function setTempCelsius(string $temp_celsius): static
+    public function setTempCelsius(?string $temp_celsius): static
     {
         $this->temp_celsius = $temp_celsius;
 
@@ -76,7 +76,7 @@ class Measurement
         return $this->feels_like_celsius;
     }
 
-    public function setFeelsLikeCelsius(string $feels_like_celsius): static
+    public function setFeelsLikeCelsius(?string $feels_like_celsius): static
     {
         $this->feels_like_celsius = $feels_like_celsius;
 
@@ -88,7 +88,7 @@ class Measurement
         return $this->weather_condition;
     }
 
-    public function setWeatherCondition(string $weather_condition): static
+    public function setWeatherCondition(?string $weather_condition): static
     {
         $this->weather_condition = $weather_condition;
 

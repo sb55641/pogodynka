@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a href="{{ path('app_logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ path('app_login') }}">Login</a>
+        {% endif %}
         <style>
             body {
                 background: url("https://placehold.co/100x100/FFFFFF/EFEFEF/png?text=55641");
@@ -24,6 +29,7 @@
         {% endif %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
     </body>
 </html>

@@ -94,4 +94,8 @@ class Measurement
 
         return $this;
     }
+    public function getFahrenheit(): float
+    {
+        return $this->getTempCelsius() * 9 / 5 + 32;
+    }
 }
